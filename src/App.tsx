@@ -1,10 +1,12 @@
-import React from "react";
+import React, { Suspense } from "react";
+
+const Counter = React.lazy(() => import('./components/example/Counter'));
 
 function App() {
   return (
-    <div>
-      <h1>App</h1>
-    </div>
+    <Suspense fallback={<div>Loading...</div>}>
+      <Counter />
+    </Suspense>
   );
 }
 
